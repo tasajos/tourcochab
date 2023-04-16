@@ -134,7 +134,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="FERIAS DE COMIDA" />
+                        android:text="FERIAS" />
 
                 </LinearLayout>
 
@@ -158,25 +158,34 @@
         android:elevation="8dp"
         android:layout_gravity="bottom">
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Botón 1"/>
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/registro_en_linea"
+            android:scaleType="centerInside"
+            android:background="@null"
+            />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Botón 2"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"/>
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/mapa"
+            android:scaleType="centerInside"
+           android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"/>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Botón 3"/>
+        <ImageButton
+            android:id="@+id/btnwhatsapp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/whatsapp"
+            android:scaleType="centerInside"
+            android:background="@null"
+            android:onClick="openWhatsApp"
+            />
 
     </LinearLayout>
 </LinearLayout>
