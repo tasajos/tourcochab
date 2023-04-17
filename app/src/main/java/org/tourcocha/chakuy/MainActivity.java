@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.net.Uri;
 
@@ -19,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView txtVersion = findViewById(R.id.txtversion);
+        txtVersion.setText("Version: " + BuildConfig.VERSION_NAME);
+
         ImageButton btn3registrar = findViewById(R.id.imageButton1);
 
 

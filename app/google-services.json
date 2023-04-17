@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "102920667381",
+    "project_id": "tourcocha20",
+    "storage_bucket": "tourcocha20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102920667381:android:9c7d281c0047daade785bc",
+        "android_client_info": {
+          "package_name": "org.tourcocha.chakuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102920667381-j4rr31djc84p6vqt9lll5rc5ds856v55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA0EFC64F9VUVMbQzx07xR3OcX59MI3J4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102920667381-j4rr31djc84p6vqt9lll5rc5ds856v55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

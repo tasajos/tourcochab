@@ -1,7 +1,9 @@
 package org.tourcocha.chakuy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.UiAutomation;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,21 +17,43 @@ import android.net.Uri;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Calendar;
-public class registrarevento extends AppCompatActivity {
+public class registrarevento extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener {
+
+
+
 
     Button btn_registrar;
 
+
+    //private EditText ubicacionEditText;
+    EditText ubicacion,ubicacion2;
+
+    GoogleMap mMap;
     private EditText mFechaEditText;
-    EditText nombre,apellido,tipo,detalle,pedido,ubicacion,fecha;
+    EditText nombre,apellido,tipo,detalle,pedido,fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarevento);
         mFechaEditText = findViewById(R.id.fecha);
+
+        ubicacion = findViewById(R.id.ubicacion);
+        ubicacion2 = findViewById(R.id.ubicacion2);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
 
 
         this.setTitle("Crear Registro Evento");
@@ -43,18 +67,8 @@ public class registrarevento extends AppCompatActivity {
         ubicacion = findViewById(R.id.ubicacion);
         fecha    = findViewById(R.id.fecha);
 
-        tipoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String tipo = parent.getItemAtPosition(position).toString();
-                // Do something with the selected tipo
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Do nothing
-            }
-        });
+
 
         Button btnRegistrar = findViewById(R.id.btn_registrar);
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +118,7 @@ public class registrarevento extends AppCompatActivity {
         String detalleStr = detalle.getText().toString();
         String pedidoStr = pedido.getText().toString();
         String ubicacionStr = ubicacion.getText().toString();
+        String ubicacion2Str = ubicacion2.getText().toString();
         String fechaStr = fecha.getText().toString();
 
         // Concatenar los valores en una cadena de mensaje
@@ -111,7 +126,8 @@ public class registrarevento extends AppCompatActivity {
                 "Apellido: " + apellidoStr + "\n" +
                 "Detalle: " + detalleStr + "\n" +
                 "Pedido: " + pedidoStr + "\n" +
-                "Ubicación: " + ubicacionStr + "\n" +
+                "Ubicación Long: " + ubicacionStr + "\n" +
+                "Ubicación Lat: " + ubicacion2Str + "\n" +
                 "Fecha: " + fechaStr;
 
         return mensaje;
@@ -123,6 +139,47 @@ public class registrarevento extends AppCompatActivity {
     // ...
 }
 
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+
+            mMap = googleMap;
+            this.mMap.setOnMapClickListener(this);
+            this.mMap.setOnMapLongClickListener(this);
+
+LatLng bolivia = new LatLng(-17.3939986,-66.3197696);
+mMap.addMarker(new MarkerOptions().position(bolivia).title("Cochabamba"));
+mMap.moveCamera(CameraUpdateFactory.newLatLng(bolivia));
+
+
     }
+
+    @Override
+    public void onMapClick(@NonNull LatLng latLng) {
+
+        ubicacion.setText(""+latLng.latitude);
+        ubicacion2.setText(""+latLng.longitude);
+
+        mMap.clear();
+
+        LatLng bolivia = new LatLng(latLng.latitude,latLng.longitude);
+        mMap.addMarker(new MarkerOptions().position(bolivia).title(""));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bolivia));
+
+    }
+
+    @Override
+    public void onMapLongClick(@NonNull LatLng latLng) {
+
+        ubicacion.setText(""+latLng.latitude);
+        ubicacion2.setText(""+latLng.longitude);
+
+        mMap.clear();
+
+        LatLng bolivia = new LatLng(latLng.latitude,latLng.longitude);
+        mMap.addMarker(new MarkerOptions().position(bolivia).title(""));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bolivia));
+
+    }
+}
 
 
