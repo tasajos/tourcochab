@@ -30,15 +30,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/apellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Apellido"
-            android:inputType="textPersonName" />
+        <ImageButton
+            android:id="@+id/btnimagen"
+            android:text="Seleccionar imagen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/subir"
+            android:scaleType="centerInside"
+            android:background="@null"
+            />
+
+
+
 
         <TextView
             android:id="@+id/textView2"
@@ -46,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Tipo"
             android:textAlignment="textStart"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
         <Spinner
             android:id="@+id/tipo_spinner"
@@ -65,7 +71,8 @@
             android:ems="10"
             android:hint="Detalle"
             android:inputType="textMultiLine"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/pedido"
@@ -73,16 +80,18 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Telefono de Contacto"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/ubicacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:enabled="false"
             android:hint="Ubicacion Latitud"
             android:inputType="textPersonName"
-            android:enabled="false"/>
+            android:textSize="14sp" />
 
 
         <EditText
@@ -90,9 +99,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:enabled="false"
             android:hint="Ubicacion Longitud"
             android:inputType="textPersonName"
-            android:enabled="false" />
+            android:textSize="14sp" />
         
         <fragment
 
@@ -105,14 +115,15 @@
             map:uiZoomControls="true"
 
             />
+
         <EditText
             android:id="@+id/fecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Fecha"
             android:enabled="false"
-             />
+            android:hint="Fecha"
+            android:textSize="14sp" />
         <ImageButton
             android:id="@+id/btn_seleccionar_fecha"
             android:layout_width="30dp"

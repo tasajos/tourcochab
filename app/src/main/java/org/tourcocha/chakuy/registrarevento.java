@@ -60,7 +60,7 @@ public class registrarevento extends AppCompatActivity implements OnMapReadyCall
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nombre = findViewById(R.id.nombre);
-        apellido = findViewById(R.id.apellido);
+        //apellido = findViewById(R.id.apellido);
         detalle = findViewById(R.id.detalle);
         Spinner tipoSpinner = findViewById(R.id.tipo_spinner);
         pedido = findViewById(R.id.pedido);
@@ -125,7 +125,7 @@ public class registrarevento extends AppCompatActivity implements OnMapReadyCall
         String mensaje = "Nombre: " + nombreStr + "\n" +
                 "Apellido: " + apellidoStr + "\n" +
                 "Detalle: " + detalleStr + "\n" +
-                "Pedido: " + pedidoStr + "\n" +
+                "Nro: " + pedidoStr + "\n" +
                 "Ubicación Long: " + ubicacionStr + "\n" +
                 "Ubicación Lat: " + ubicacion2Str + "\n" +
                 "Fecha: " + fechaStr;
