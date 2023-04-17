@@ -69,31 +69,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Telefono de Contacto"
-            android:inputType="phone" />
-
-        <EditText
-            android:id="@+id/cantidad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Cantidad"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/color"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Color"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/precio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Precio"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/ubicacion"

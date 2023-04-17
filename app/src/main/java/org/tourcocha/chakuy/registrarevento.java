@@ -23,7 +23,7 @@ public class registrarevento extends AppCompatActivity {
     Button btn_registrar;
 
     private EditText mFechaEditText;
-    EditText nombre,apellido,tipo,detalle,pedido,cantidad,color,precio,ubicacion,fecha;
+    EditText nombre,apellido,tipo,detalle,pedido,ubicacion,fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,8 @@ public class registrarevento extends AppCompatActivity {
         detalle = findViewById(R.id.detalle);
         Spinner tipoSpinner = findViewById(R.id.tipo_spinner);
         pedido = findViewById(R.id.pedido);
-        cantidad = findViewById(R.id.cantidad);
-        color = findViewById(R.id.color);
-        precio = findViewById(R.id.precio);
         ubicacion = findViewById(R.id.ubicacion);
+        fecha    = findViewById(R.id.fecha);
 
         tipoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -105,9 +103,6 @@ public class registrarevento extends AppCompatActivity {
         String apellidoStr = apellido.getText().toString();
         String detalleStr = detalle.getText().toString();
         String pedidoStr = pedido.getText().toString();
-        String cantidadStr = cantidad.getText().toString();
-        String colorStr = color.getText().toString();
-        String precioStr = precio.getText().toString();
         String ubicacionStr = ubicacion.getText().toString();
         String fechaStr = fecha.getText().toString();
 
@@ -116,9 +111,6 @@ public class registrarevento extends AppCompatActivity {
                 "Apellido: " + apellidoStr + "\n" +
                 "Detalle: " + detalleStr + "\n" +
                 "Pedido: " + pedidoStr + "\n" +
-                "Cantidad: " + cantidadStr + "\n" +
-                "Color: " + colorStr + "\n" +
-                "Precio: " + precioStr + "\n" +
                 "Ubicación: " + ubicacionStr + "\n" +
                 "Fecha: " + fechaStr;
 
