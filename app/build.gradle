@@ -10,8 +10,8 @@ android {
         applicationId "org.tourcocha.chakuy"
         minSdk 25
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 201
+        versionName "201"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
