@@ -8,34 +8,55 @@ import android.widget.EditText;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.AdapterView;
+import android.net.Uri;
+import android.app.DatePickerDialog;
+import android.widget.DatePicker;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import android.net.Uri;
-
-
+import java.util.Calendar;
 public class registrarevento extends AppCompatActivity {
 
     Button btn_registrar;
 
+    private EditText mFechaEditText;
     EditText nombre,apellido,tipo,detalle,pedido,cantidad,color,precio,ubicacion,fecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarevento);
+        mFechaEditText = findViewById(R.id.fecha);
+
+
+        this.setTitle("Crear Registro Evento");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nombre = findViewById(R.id.nombre);
         apellido = findViewById(R.id.apellido);
         detalle = findViewById(R.id.detalle);
+        Spinner tipoSpinner = findViewById(R.id.tipo_spinner);
         pedido = findViewById(R.id.pedido);
         cantidad = findViewById(R.id.cantidad);
         color = findViewById(R.id.color);
         precio = findViewById(R.id.precio);
         ubicacion = findViewById(R.id.ubicacion);
-        fecha = findViewById(R.id.fecha);
 
+        tipoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String tipo = parent.getItemAtPosition(position).toString();
+                // Do something with the selected tipo
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
 
         Button btnRegistrar = findViewById(R.id.btn_registrar);
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +76,28 @@ public class registrarevento extends AppCompatActivity {
                 }
             }
         });
+
+
+    }
+    public void mostrarDatePicker(View view) {
+        // Obtener la fecha actual
+        final Calendar c = Calendar.getInstance();
+        int anio = c.get(Calendar.YEAR);
+        int mes = c.get(Calendar.MONTH);
+        int dia = c.get(Calendar.DAY_OF_MONTH);
+
+        // Crear el diálogo DatePicker y establecer la fecha actual como fecha predeterminada
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        // Actualizar el campo de fecha con la fecha seleccionada
+                        mFechaEditText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                    }
+                }, anio, mes, dia);
+
+        // Mostrar el diálogo DatePicker
+        datePickerDialog.show();
     }
 
     public String crearMensaje() {
