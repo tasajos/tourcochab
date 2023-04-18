@@ -1,0 +1,36 @@
+1.- Nuevo proyecto de firebase
+2.-habilitar google analytics
+3.-agregar android
+    1.- Registrar app (org.tourcocha.chakuy)
+    2.- Registrar app
+    3.- Descargar googleservices.json
+    4.- Cambiar a vista de proyecto y enviar el archivo googleservices.json como hijo de app
+    5.- modificar build.gradle de acuerdo al sgte
+        buildscript {
+            repositories {
+                google()
+                mavenCentral()
+            }
+            dependencies {
+                classpath 'com.google.gms:google-services:4.3.15'
+            }
+        }
+
+        plugins {
+            id 'com.android.application'
+            id 'com.android.library'
+            id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+        }
+
+        android {
+            // rest of the android block
+        }
+
+        dependencies {
+            // rest of the dependencies block
+        }
+
+        apply plugin: 'com.google.gms.google-services'
+
+
+
