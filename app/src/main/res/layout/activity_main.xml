@@ -166,6 +166,17 @@
             android:text="TextView" />
 
         <ImageButton
+            android:id="@+id/imgbtnservicio"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ayuda"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerInside"
+            android:background="@null"
+            />
+
+        <ImageButton
             android:id="@+id/imageButton1"
             android:layout_width="40dp"
             android:layout_height="40dp"

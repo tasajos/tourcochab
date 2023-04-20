@@ -1,0 +1,12 @@
+Para mostrar servicios txt
+ this.setTitle("Crear Registro Evento");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+ @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+
+}
+
