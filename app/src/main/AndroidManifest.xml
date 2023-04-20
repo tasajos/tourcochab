@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Tourcocha"
         tools:targetApi="31">
         <activity
+            android:name=".mapass"
+            android:exported="false" />
+        <activity
             android:name=".servicios"
             android:exported="false" />
 

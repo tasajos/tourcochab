@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton btn3registrar = findViewById(R.id.imageButton1);
         ImageButton btnasistencia = findViewById(R.id.imgbtnservicio);
-
+        ImageButton btnmapa = findViewById(R.id.imageButton2);
 
         btn3registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,servicios.class);
+                startActivity(intent);
+            }
+        });
+
+
+        btnmapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,mapass.class);
                 startActivity(intent);
             }
         });
