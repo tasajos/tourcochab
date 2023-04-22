@@ -2,18 +2,19 @@ package org.tourcocha.chakuy.model;
 
 public class tour {
 
-    String datef,detail,locationlat,locationlong,name,order,type;
+    String datef,detail,locationlat,locationlong,name,order,type,ubicaciontotal;
 
     public tour(){}
 
-    public tour(String datef, String detail, String locationlat, String locationlong, String name, String order, String type) {
+    public tour(String datef, String detail, String locationlat, String locationlong, String name, String order, String type,String ubicaciontotal ) {
         this.datef = datef;
         this.detail = detail;
-        this.locationlat = locationlat;
-        this.locationlong = locationlong;
+        //this.locationlat = locationlat;
+        //this.locationlong = locationlong;
         this.name = name;
         this.order = order;
         this.type = type;
+        this.ubicaciontotal = ubicaciontotal;
     }
 
     public String getDatef() {
@@ -32,21 +33,21 @@ public class tour {
         this.detail = detail;
     }
 
-    public String getLocationlat() {
-        return locationlat;
-    }
+    //public String getLocationlat() {
+      //  return locationlat;
+    //}
 
-    public void setLocationlat(String locationlat) {
-        this.locationlat = locationlat;
-    }
+    //public void setLocationlat(String locationlat) {
+      //  this.locationlat = locationlat;
+    //}
 
-    public String getLocationlong() {
-        return locationlong;
-    }
+    //public String getLocationlong() {
+      //  return locationlong;
+    //}
 
-    public void setLocationlong(String locationlong) {
-        this.locationlong = locationlong;
-    }
+    //public void setLocationlong(String locationlong) {
+      //  this.locationlong = locationlong;
+    //}
 
     public String getName() {
         return name;
@@ -70,6 +71,15 @@ public class tour {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+
+    public String getUbicaciontotal() {
+        return ubicaciontotal;
+    }
+
+    public void setUbicaciontotal(String ubicaciontotal) {
+        this.ubicaciontotal = ubicaciontotal;
     }
 
 

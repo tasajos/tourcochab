@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Tourcocha"
         tools:targetApi="31">
         <activity
+            android:name=".UbicacionActivity"
+            android:exported="false" />
+        <activity
             android:name=".visualizar"
             android:exported="false" />
         <activity

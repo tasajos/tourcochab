@@ -32,7 +32,7 @@ public class visualizar extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         mRecycler = findViewById(R.id.recyclerviwe2);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
-        Query query = mFirestore.collection("tourcochadb");
+        Query query = mFirestore.collection("tourdb");
 
         FirestoreRecyclerOptions<tour> firestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<tour>().setQuery(query,tour.class).build();
