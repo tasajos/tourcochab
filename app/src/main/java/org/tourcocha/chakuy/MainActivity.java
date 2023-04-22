@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.net.Uri;
@@ -27,6 +28,16 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btn3registrar = findViewById(R.id.imageButton1);
         ImageButton btnasistencia = findViewById(R.id.imgbtnservicio);
         ImageButton btnmapa = findViewById(R.id.imageButton2);
+        LinearLayout listado = findViewById(R.id.lugares);
+
+
+        listado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,visualizar.class);
+                startActivity(intent);
+            }
+        });
 
         btn3registrar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,8 +24,8 @@ android {
         applicationId "org.tourcocha.chakuy"
         minSdk 25
         targetSdk 33
-        versionCode 207
-        versionName "2.0.7"
+        versionCode 208
+        versionName "2.0.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -57,7 +57,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:20.0.1'
     implementation 'com.google.firebase:firebase-firestore:24.5.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
 
+    implementation 'com.firebaseui:firebase-ui-firestore:4.3.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

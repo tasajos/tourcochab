@@ -1,0 +1,92 @@
+1.- añadir reciclerview
+2.- añadir adapter package
+3.- añadir model package
+4.- crear la clase tour
+
+public class tour {
+
+    String datef,detail,locationlat,locationlong,name,order,type;
+
+    public tour(){}
+
+}
+
+5.- Alt + insert para crear el constructor
+
+deberia salir esto
+
+  public tour(String datef, String detail, String locationlat, String locationlong, String name, String order, String type) {
+        this.datef = datef;
+        this.detail = detail;
+        this.locationlat = locationlat;
+        this.locationlong = locationlong;
+        this.name = name;
+        this.order = order;
+        this.type = type;
+    }
+
+6.- Alt + insert para crear el setler
+
+deberia salir esto
+
+ public String getDatef() {
+        return datef;
+    }
+
+    public void setDatef(String datef) {
+        this.datef = datef;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getLocationlat() {
+        return locationlat;
+    }
+
+    public void setLocationlat(String locationlat) {
+        this.locationlat = locationlat;
+    }
+
+    public String getLocationlong() {
+        return locationlong;
+    }
+
+    public void setLocationlong(String locationlong) {
+        this.locationlong = locationlong;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+7.- crear java class en el package adapter
+tourAdapter.java
+
+8.- crear viewtour
+9.-darformato
