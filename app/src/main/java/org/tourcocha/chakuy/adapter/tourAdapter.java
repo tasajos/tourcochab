@@ -82,11 +82,18 @@ public class tourAdapter extends  FirestoreRecyclerAdapter <tour,tourAdapter.Vie
             txtubicaciontotal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), UbicacionActivity.class);
-                    //intent.putExtra("ubicacion", tour.getUbicaciontotal());
-                    intent.putExtra("ubicacion", getItem(position).getUbicaciontotal());
 
+                    String ubicacion = getItem(position).getUbicaciontotal();
+                    String uri = "geo:" + ubicacion + "?z=15&q=" + ubicacion;
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                    intent.setPackage("com.google.android.apps.maps");
                     v.getContext().startActivity(intent);
+
+                    //Intent intent = new Intent(v.getContext(), UbicacionActivity.class);
+                    //*intent.putExtra("ubicacion", tour.getUbicaciontotal());
+                    //intent.putExtra("ubicacion", getItem(position).getUbicaciontotal());
+
+                    //v.getContext().startActivity(intent);
                 }
             });
 
