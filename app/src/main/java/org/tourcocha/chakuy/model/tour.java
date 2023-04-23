@@ -2,11 +2,11 @@ package org.tourcocha.chakuy.model;
 
 public class tour {
 
-    String datef,detail,locationlat,locationlong,name,order,type,ubicaciontotal;
+    String datef,detail,locationlat,locationlong,name,order,type,ubicaciontotal,images;
 
     public tour(){}
 
-    public tour(String datef, String detail, String locationlat, String locationlong, String name, String order, String type,String ubicaciontotal ) {
+    public tour(String datef, String detail, String locationlat, String locationlong, String name, String order, String type,String ubicaciontotal, String images ) {
         this.datef = datef;
         this.detail = detail;
         //this.locationlat = locationlat;
@@ -15,6 +15,7 @@ public class tour {
         this.order = order;
         this.type = type;
         this.ubicaciontotal = ubicaciontotal;
+        this.images = images;
     }
 
     public String getDatef() {
@@ -81,6 +82,13 @@ public class tour {
     public void setUbicaciontotal(String ubicaciontotal) {
         this.ubicaciontotal = ubicaciontotal;
     }
+    //private String images;
+    public String getImage() {
+        return images;
+    }
 
+    public void setImage(String images) {
+        this.images = images;
+    }
 
 }

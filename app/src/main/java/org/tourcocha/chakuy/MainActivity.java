@@ -29,15 +29,34 @@ public class MainActivity extends AppCompatActivity {
         ImageButton btnasistencia = findViewById(R.id.imgbtnservicio);
         ImageButton btnmapa = findViewById(R.id.imageButton2);
         LinearLayout listado = findViewById(R.id.lugares);
+        LinearLayout ruteo = findViewById(R.id.ruteo);
+        LinearLayout ferias = findViewById(R.id.comidas);
 
 
         listado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,visualizar.class);
+                Intent intent = new Intent(MainActivity.this,ActividadesResum.class);
                 startActivity(intent);
             }
         });
+
+        ferias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,feriasactivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ruteo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,RuteoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         btn3registrar.setOnClickListener(new View.OnClickListener() {
             @Override
