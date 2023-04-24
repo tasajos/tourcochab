@@ -1,0 +1,26 @@
+
+LinearLayout turismo = findViewById(R.id.Turismo);
+
+
+
+        turismo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Assuming that 'view' is the View object that the OnClickListener is attached to
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+                builder.setTitle("Turismo");
+                builder.setMessage("Mensaje muy pronto");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+

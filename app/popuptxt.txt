@@ -1,0 +1,30 @@
+Mostrar un pop up
+1.- crear un resources
+2.- añadir este codigo en la clase servicios.java
+
+// Inflar el diseño del pop-up
+
+
+
+
+        View popupView = getLayoutInflater().inflate(R.layout.popup_turismp, null);
+
+// Crear la ventana emergente y establecer el diseño y el tamaño
+        popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+// Configurar una animación para la entrada y salida del pop-up
+        popupWindow.setAnimationStyle(android.R.style.Animation_Dialog);
+
+// Cerrar el pop-up cuando se hace clic en cualquier lugar fuera de él
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setFocusable(true);
+
+// Manejar el evento de clic en el botón "Turismo"
+        LinearLayout turismoLayout = findViewById(R.id.Turismo);
+        turismoLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Mostrar el pop-up en la posición relativa al botón "Turismo"
+                popupWindow.showAsDropDown(turismoLayout);
+            }
+        });

@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".emergenciasAc"
+            android:exported="false" />
+        <activity
             android:name=".feriasactivity"
             android:exported="false" />
         <activity

@@ -7,9 +7,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.PopupWindow;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 public class servicios extends AppCompatActivity {
+
+    private PopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,9 @@ public class servicios extends AppCompatActivity {
         ImageButton registro = findViewById(R.id.imageButton1);
         ImageButton btnasistencia = findViewById(R.id.imgbtnservicio);
         ImageButton mapas = findViewById(R.id.imageButton2);
+        LinearLayout emergencias = findViewById(R.id.emergencias);
+        LinearLayout turismo = findViewById(R.id.Turismo);
+
 
 
 
@@ -29,6 +38,32 @@ public class servicios extends AppCompatActivity {
 
         this.setTitle("Servicios");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        turismo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Assuming that 'view' is the View object that the OnClickListener is attached to
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+                builder.setTitle("Turismo");
+                builder.setMessage("Mensaje muy pronto");
+                builder.setIcon(R.drawable.logocha);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+
+
 
 
         registro.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +81,15 @@ public class servicios extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        emergencias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(servicios.this,emergenciasAc.class);
+                startActivity(intent);
+            }
+        });
+
 
             }
 
