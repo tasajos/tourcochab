@@ -28,7 +28,7 @@ public class servicios extends AppCompatActivity {
         ImageButton mapas = findViewById(R.id.imageButton2);
         LinearLayout emergencias = findViewById(R.id.emergencias);
         LinearLayout turismo = findViewById(R.id.Turismo);
-
+        LinearLayout asistencia = findViewById(R.id.asistencia);
 
 
 
@@ -90,6 +90,13 @@ public class servicios extends AppCompatActivity {
             }
         });
 
+        asistencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(servicios.this,asistenciaviajero.class);
+                startActivity(intent);
+            }
+        });
 
             }
 

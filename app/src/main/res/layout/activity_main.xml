@@ -57,7 +57,7 @@
                         android:layout_width="353dp"
                         android:layout_height="240dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/cbba" />
+                        android:src="@drawable/tursimocbba" />
 
                     <TextView
                         android:layout_marginTop="12dp"
@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="QUE HACER HOY" />
+                        android:text="ATRACTIVOS TURISTICOS" />
 
                 </LinearLayout>
 
@@ -92,7 +92,7 @@
                         android:layout_width="353dp"
                         android:layout_height="240dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/cristo_de_la_concordia_cochabamba" />
+                        android:src="@drawable/rutascbba" />
 
                     <TextView
                         android:layout_marginTop="12dp"

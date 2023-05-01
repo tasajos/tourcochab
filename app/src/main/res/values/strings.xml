@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tourcocha</string>
+    <string name="app_name">Turista</string>
     <string name="tipo_prompt">Seleccione el tipo</string>
     <string-array name="tipo_array">
         <item>Actividades</item>
