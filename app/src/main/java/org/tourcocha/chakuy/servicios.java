@@ -85,7 +85,7 @@ public class servicios extends AppCompatActivity {
         emergencias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(servicios.this,emergenciasAc.class);
+                Intent intent = new Intent(servicios.this,ResumeEmergencias.class);
                 startActivity(intent);
             }
         });
