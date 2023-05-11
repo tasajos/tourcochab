@@ -83,7 +83,8 @@ public class EmergAdapter extends FirestoreRecyclerAdapter<EmergModel, EmergAdap
             @Override
             public void onClick(View v) {
                 String phoneNumber = EmergModel.getWhatsapp().replaceAll("[^0-9]", ""); // formatea el número de teléfono eliminando todos los caracteres no numéricos
-                String url = "https://api.whatsapp.com/send?phone=" + phoneNumber;
+                String message = "Turista app, necesito informacion";
+                String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + message;;
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 v.getContext().startActivity(intent);
@@ -94,7 +95,8 @@ public class EmergAdapter extends FirestoreRecyclerAdapter<EmergModel, EmergAdap
             @Override
             public void onClick(View v) {
                 String phoneNumber = EmergModel.getWhatsapp().replaceAll("[^0-9]", ""); // formatea el número de teléfono eliminando todos los caracteres no numéricos
-                String url = "https://api.whatsapp.com/send?phone=" + phoneNumber;
+                String message = "Turista app, necesito informacion";
+                String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + message;;
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 v.getContext().startActivity(intent);

@@ -37,7 +37,8 @@ public class ResumeEmergencias extends AppCompatActivity {
         mAdapter = new EmergAdapter(firestoreRecyclerOptions);
         mAdapter.notifyDataSetChanged();
         mRecycler.setAdapter(mAdapter);
-
+        this.setTitle("Emergencias");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -47,12 +48,20 @@ public class ResumeEmergencias extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAdapter.startListening();
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         mAdapter.stopListening();
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
 
     }
 }
