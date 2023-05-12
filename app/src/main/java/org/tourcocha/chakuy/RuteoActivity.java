@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import android.widget.ProgressBar;
+import android.os.Handler;
+import android.view.View;
 public class RuteoActivity extends AppCompatActivity {
 
     private WebView mWebView;
-
+    private ProgressBar mProgressBar;
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,8 @@ public class RuteoActivity extends AppCompatActivity {
 
         mWebView = (WebView) findViewById(R.id.my_ruteo_view);
         mWebView.getSettings().setJavaScriptEnabled(true); // habilitar JavaScript (opcional)
+        mProgressBar = findViewById(R.id.progressBar);
+        mHandler = new Handler();
 
         String url = "http://tour2kcbba.chakuy.com/rutas/";
         mWebView.loadUrl(url);
@@ -28,6 +33,11 @@ public class RuteoActivity extends AppCompatActivity {
                 view.loadUrl(url);
                 return true;
             }
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    mProgressBar.setVisibility(View.GONE);
+                }
+
         });
 
 //Volver
@@ -35,6 +45,14 @@ public class RuteoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        //Mostrar ProgressBar durante 3 segundos
+        mProgressBar.setVisibility(View.VISIBLE);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgressBar.setVisibility(View.GONE);
+            }
+        }, 3000);
 
 
     }

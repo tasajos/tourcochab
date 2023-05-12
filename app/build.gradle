@@ -24,8 +24,8 @@ android {
         applicationId "org.tourcocha.chakuy"
         minSdk 25
         targetSdk 33
-        versionCode 216
-        versionName "2.1.6 - Bravo"
+        versionCode 2171
+        versionName "2.1.7.1 - Bravo"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

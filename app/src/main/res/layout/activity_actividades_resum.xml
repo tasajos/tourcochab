@@ -15,6 +15,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/my_actividades_view"
+        app:layout_constraintEnd_toEndOf="@+id/my_actividades_view"
+        app:layout_constraintStart_toStartOf="@+id/my_actividades_view"
+        app:layout_constraintTop_toTopOf="@+id/my_actividades_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
