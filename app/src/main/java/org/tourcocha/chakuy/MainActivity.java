@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout listado = findViewById(R.id.lugares);
         LinearLayout ruteo = findViewById(R.id.ruteo);
         LinearLayout ferias = findViewById(R.id.comidas);
+        LinearLayout servemerge = findViewById(R.id.servemer);
+
+
+        servemerge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,servicios.class);
+                startActivity(intent);
+            }
+        });
 
 
         listado.setOnClickListener(new View.OnClickListener() {

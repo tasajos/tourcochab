@@ -135,6 +135,40 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp" >
+
+                <LinearLayout
+                    android:id="@+id/servemer"
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="353dp"
+                        android:layout_height="240dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/seguridad_taller" />
+
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="ASISTENCIA AL VIAJERO" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </GridLayout>
 
 
