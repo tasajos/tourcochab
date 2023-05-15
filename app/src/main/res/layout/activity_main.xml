@@ -7,6 +7,37 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/lineatop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <ImageButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="openFacebook"
+            android:scaleType="centerInside"
+            android:src="@drawable/facebook" />
+
+        <ImageButton
+            android:id="@+id/btnSirena"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="openSirena"
+            android:scaleType="centerInside"
+            android:src="@drawable/sirena" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,26 +51,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|top"
-            android:padding="16dp"
-            android:background="@color/white"
-            android:elevation="8dp">
 
-            <ImageButton
-                android:id="@+id/btnFacebook"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/facebook"
-                android:scaleType="centerInside"
-                android:background="@null"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:onClick="openFacebook" />
-
-        </RelativeLayout>
 
 
 

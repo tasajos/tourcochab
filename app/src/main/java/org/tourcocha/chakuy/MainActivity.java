@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout ferias = findViewById(R.id.comidas);
         LinearLayout servemerge = findViewById(R.id.servemer);
 
+        ImageButton btnpanico = findViewById(R.id.btnSirena);
+
 
         servemerge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnpanico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,panicoemergencia.class);
+                startActivity(intent);
+
+            }
+        });
 
         btnmapa.setOnClickListener(new View.OnClickListener() {
             @Override
