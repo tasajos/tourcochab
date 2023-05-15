@@ -6,6 +6,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -18,6 +19,12 @@ import android.widget.ImageButton;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.Arrays;
@@ -29,6 +36,7 @@ public class panicoemergencia extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private Location lastKnownLocation;
     private static final int PERMISSION_REQUEST_CODE = 200;
+    private GoogleMap googleMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +57,50 @@ public class panicoemergencia extends AppCompatActivity {
                 sendWhatsAppMessage(message); // Handle button click if needed
             }
         });
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapView2);
+
+        // Create a new instance of OnMapReadyCallback and implement the onMapReady() method
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap map) {
+                googleMap = map;
+
+                // Call a method to update the map with the location
+                updateMapLocation();
+            }
+        });
     }
+
+    private void updateMapLocation() {
+        // Check for location permissions
+        if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Request the permissions if not granted
+            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
+        } else {
+            // Get the last known location
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                // Save the location in the lastKnownLocation variable
+                                lastKnownLocation = location;
+
+                                // Update the EditText with the location coordinates
+                                ubicacion.setText(location.getLatitude() + ", " + location.getLongitude());
+
+                                // Update the map with a marker at the location
+                                LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                                googleMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
+                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
+                            }
+                        }
+                    });
+        }
+    }
+
 
     private void sendWhatsAppMessage(String message) {
         String phoneNumber = "+59170776212"; // Replace with the desired phone number
