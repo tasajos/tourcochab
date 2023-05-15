@@ -14,6 +14,7 @@ import android.net.Uri;
 
 import com.google.firebase.inappmessaging.FirebaseInAppMessaging;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 
@@ -115,8 +116,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void openWhatsApp(View view) {
+        String message = "*Turista - Cocha* Quisiera mas informacion";
+        String phoneNumber = "+59177087685";
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + URLEncoder.encode(message, "UTF-8")));
+            startActivity(intent);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openFacebook(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=70776212"));
+        intent.setData(Uri.parse("https://www.facebook.com/turistacocha"));
         startActivity(intent);
     }
 
