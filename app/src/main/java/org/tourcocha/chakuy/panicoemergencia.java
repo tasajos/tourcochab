@@ -41,29 +41,33 @@ public class panicoemergencia extends AppCompatActivity {
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String ubication = ubicacion.getText().toString().trim();
-
-                // Primero, asegurarse de tener permisos de ubicación
-                if (ActivityCompat.checkSelfPermission(panicoemergencia.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(panicoemergencia.this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(panicoemergencia.this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
-                    return;
-                }
-
-                // Obtener la última ubicación conocida del usuario
-                fusedLocationClient.getLastLocation()
-                        .addOnSuccessListener(new OnSuccessListener<Location>() {
-                            @Override
-                            public void onSuccess(Location location) {
-                                if (location != null) {
-                                    // Guardar la ubicación en la variable lastKnownLocation
-                                    lastKnownLocation = location;
-                                    ubicacion.setText(location.getLatitude() + ", " + location.getLongitude());
-                                }
-                            }
-                        });
+                // Handle button click if needed
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Primero, asegurarse de tener permisos de ubicación
+        if (ActivityCompat.checkSelfPermission(panicoemergencia.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(panicoemergencia.this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(panicoemergencia.this, new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, PERMISSION_REQUEST_CODE);
+        } else {
+            // Si ya tiene los permisos, obtener la ubicación
+            fusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                // Guardar la ubicación en la variable lastKnownLocation
+                                lastKnownLocation = location;
+                                ubicacion.setText(location.getLatitude() + ", " + location.getLongitude());
+                            }
+                        }
+                    });
+        }
     }
 
     @Override

@@ -44,6 +44,7 @@
         android:textColor="#EDE7E7"
         android:textColorHint="#EFE8E8"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:enabled="false"/>
 
 </LinearLayout>
