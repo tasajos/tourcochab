@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.net.Uri;
 
+import com.google.firebase.inappmessaging.FirebaseInAppMessaging;
+
 import java.net.URLEncoder;
 
 
@@ -21,6 +23,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+
+// Verificar si el intent contiene un enlace de URL
+        if (intent.getData() != null) {
+            // Obtener la URL del intent
+            Uri uri = intent.getData();
+
+            // Abrir la URL en un navegador web
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(webIntent);
+        }
 
         TextView txtVersion = findViewById(R.id.txtversion);
         txtVersion.setText("Version: " + BuildConfig.VERSION_NAME);

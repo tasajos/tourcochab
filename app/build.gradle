@@ -1,3 +1,4 @@
+
 buildscript {
     repositories {
         google()
@@ -5,6 +6,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.google.gms:google-services:4.3.15'
+
+
     }
 }
 
@@ -14,18 +17,24 @@ plugins {
 
 }
 
-
-
 android {
     namespace 'org.tourcocha.chakuy'
     compileSdk 33
+
+    sourceSets {
+        debug {
+            java.srcDirs += 'src/debug/java'
+            res.srcDirs += 'src/debug/res'
+        }
+    }
+
 
     defaultConfig {
         applicationId "org.tourcocha.chakuy"
         minSdk 25
         targetSdk 33
-        versionCode 2171
-        versionName "2.1.7.1 - Bravo"
+        versionCode 23
+        versionName "2.3 - Bravo"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -64,14 +73,20 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx:20.3.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'com.google.firebase:firebase-inappmessaging-display:20.2.0'
+
 
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
 
 }
 apply plugin: 'com.google.gms.google-services'
