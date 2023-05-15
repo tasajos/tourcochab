@@ -6,8 +6,10 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,9 +20,11 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class panicoemergencia extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.List;
 
-    ImageButton btn_registrar;
+public class panicoemergencia extends AppCompatActivity {
+    ImageButton btnalarma;
     EditText ubicacion;
     private FusedLocationProviderClient fusedLocationClient;
     private Location lastKnownLocation;
@@ -36,16 +40,37 @@ public class panicoemergencia extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ubicacion = findViewById(R.id.ubicacion);
-        btn_registrar = findViewById(R.id.btnalarma);
+        btnalarma = findViewById(R.id.btnalarma);
 
-        btn_registrar.setOnClickListener(new View.OnClickListener() {
+        btnalarma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle button click if needed
+                String message = ubicacion.getText().toString();
+                sendWhatsAppMessage(message); // Handle button click if needed
             }
         });
     }
 
+    private void sendWhatsAppMessage(String message) {
+        String phoneNumber = "+59170776212"; // Replace with the desired phone number
+
+        // Get the latitude and longitude coordinates from the EditText
+        String[] coordinates = ubicacion.getText().toString().split(",");
+        String latitude = coordinates[0].trim();
+        String longitude = coordinates[1].trim();
+
+        // Create a link for opening the location in Google Maps
+        String mapLink = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+
+        // Construct the WhatsApp URL with the phone number and map link
+        String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + Uri.encode(mapLink);
+
+        // Create an Intent with ACTION_VIEW and the WhatsApp URL
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+
+        // Start the activity with the Intent
+        startActivity(intent);
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -63,7 +88,7 @@ public class panicoemergencia extends AppCompatActivity {
                             if (location != null) {
                                 // Guardar la ubicación en la variable lastKnownLocation
                                 lastKnownLocation = location;
-                                ubicacion.setText(location.getLatitude() + ", " + location.getLongitude());
+                                ubicacion.setText(location.getLatitude() + " ," + location.getLongitude());
                             }
                         }
                     });

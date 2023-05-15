@@ -18,7 +18,8 @@
         android:paddingTop="20dp"
         android:scaleType="centerInside"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:onClick="onClick"/>
 
 
     <TextView
@@ -29,7 +30,7 @@
         android:background="@android:color/white"
         android:justificationMode="inter_word"
         android:padding="16dp"
-        android:text="Tocando el numero de arriba podras mandar tu ubicacion a los servicios de emergencias, segun la emergencia que informes.\n\nEsta es tu posicion de GPS, se enviara inmediatamente"
+        android:text="Tocando el boton de arriba podras mandar tu ubicacion a los servicios de emergencias, segun la emergencia que informes.\n\nEsta es tu posicion de GPS, se enviara inmediatamente"
         android:textSize="18sp" />
 
     <EditText
