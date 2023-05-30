@@ -54,7 +54,7 @@ public class panicoemergencia extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String message = ubicacion.getText().toString();
-                sendWhatsAppMessage(message); // Handle button click if needed
+                sendWhatsAppMessages(Arrays.asList("+59177087685"), message); // Handle button click if needed
             }
         });
 
@@ -102,9 +102,7 @@ public class panicoemergencia extends AppCompatActivity {
     }
 
 
-    private void sendWhatsAppMessage(String message) {
-        String phoneNumber = "+59170776212"; // Replace with the desired phone number
-
+    private void sendWhatsAppMessages(List<String> phoneNumbers, String message) {
         // Get the latitude and longitude coordinates from the EditText
         String[] coordinates = ubicacion.getText().toString().split(",");
         String latitude = coordinates[0].trim();
@@ -112,15 +110,18 @@ public class panicoemergencia extends AppCompatActivity {
 
         // Create a link for opening the location in Google Maps
         String mapLink = "https://www.google.com/maps?q=" + latitude + "," + longitude;
+        String completeMessage = "Turista - Cocha....Necesito ayuda inmediata... Alerta enviada atraves de la app" + message;
 
-        // Construct the WhatsApp URL with the phone number and map link
-        String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + Uri.encode(mapLink);
+        for (String phoneNumber : phoneNumbers) {
+            // Construct the WhatsApp URL with the phone number and map link
+            String url = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + Uri.encode(completeMessage + "\n" + mapLink);
 
-        // Create an Intent with ACTION_VIEW and the WhatsApp URL
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            // Create an Intent with ACTION_VIEW and the WhatsApp URL
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 
-        // Start the activity with the Intent
-        startActivity(intent);
+            // Start the activity with the Intent
+            startActivity(intent);
+        }
     }
     @Override
     protected void onResume() {

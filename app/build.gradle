@@ -32,8 +32,8 @@ android {
         applicationId "org.tourcocha.chakuy"
         minSdk 25
         targetSdk 33
-        versionCode 2411
-        versionName "2.411 - Bravo"
+        versionCode 3101
+        versionName "3.0.1 - Corani"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
